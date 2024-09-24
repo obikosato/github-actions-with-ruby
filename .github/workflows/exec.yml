@@ -1,0 +1,31 @@
+name: exec
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - "*"
+
+jobs:
+  exec:
+    runs-on: ubuntu-20.04
+    timeout-minutes: 300
+    container: ruby:2.7.6
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Setup Ruby environment
+        run: |
+          gem install bundler:2.2.19
+          bundle install
+
+      - name: Execute report.rb
+        env:
+          SECRET_KEY: ${{ secrets.SECRET_KEY }}
+          HOGE: hoge-value
+        run: |
+          bundle exec ruby report.rb
