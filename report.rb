@@ -3,7 +3,9 @@ require 'dotenv'
 Dotenv.load 
 
 SECRET_KEY = ENV['SECRET_KEY']
-HOGE = ENV['HOGE']
+HOGE_VALUE = ENV['HOGE_VALUE']
+RUN_FROM = ENV['RUN_FROM']
 
 puts "SECRET_KEY: #{SECRET_KEY}"
-puts "HOGE: #{HOGE}"
+puts "HOGE_VALUE: #{HOGE_VALUE}"
+puts "RUN_FROM: #{RUN_FROM}"

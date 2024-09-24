@@ -26,6 +26,7 @@ jobs:
       - name: Execute report.rb
         env:
           SECRET_KEY: ${{ secrets.SECRET_KEY }}
-          HOGE: hoge-value
+          HOGE_VALUE: ${{ vars.HOGE_VALUE }}
+          RUN_FROM: from-github-actions
         run: |
           bundle exec ruby report.rb
