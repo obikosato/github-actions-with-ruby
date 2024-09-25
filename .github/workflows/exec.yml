@@ -1,6 +1,12 @@
 name: exec
 
 on:
+  workflow_dispatch:
+    inputs:
+      notify_hoge:
+        description: "notify hoge value"
+        required: true
+        default: "false"
   push:
     branches:
       - main
@@ -30,3 +36,7 @@ jobs:
           RUN_FROM: from-github-actions
         run: |
           bundle exec ruby report.rb
+
+      - name: Notify hoge
+        run: |
+          echo ${{ github.event.inputs.notify_hoge && vars.HOGE_VALUE || '' }}
