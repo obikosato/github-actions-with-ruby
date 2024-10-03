@@ -1,0 +1,12 @@
+{
+  "text": "新しい通知があります",
+  "username": "通知Bot",
+  "icon_emoji": ":bell:",
+  "attachments": [
+    {
+      "color": "#36a64f",
+      "title": "重要なお知らせ",
+      "text": "こんにちは、<@U1234567>さん！ :wave:\n結果は<https://example.com|こちら>からご覧ください。\n今日はいい天気ですね :sunny:"
+    }
+  ]
+}

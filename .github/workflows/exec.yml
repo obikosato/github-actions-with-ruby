@@ -3,8 +3,8 @@ name: exec
 on:
   workflow_dispatch:
     inputs:
-      notify_hoge:
-        description: "notify hoge value"
+      notify_to_slack:
+        description: "notify to slack"
         required: true
         default: "false"
   push:
@@ -37,6 +37,9 @@ jobs:
         run: |
           bundle exec ruby report.rb
 
-      - name: Notify hoge
+      - name: Notify to Slack
+        env:
+          NOTIFY_TO_SLACK: ${{ github.event.inputs.notify_to_slack }}
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
         run: |
-          echo ${{ github.event.inputs.notify_hoge && vars.HOGE_VALUE || '' }}
+          [ "$NOTIFY_TO_SLACK" = "true" ] && curl -X POST -H 'Content-type: application/json' -d @slack_message.json $SLACK_WEBHOOK_URL || echo "skip notify to slack"
