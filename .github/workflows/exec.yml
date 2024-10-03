@@ -16,18 +16,15 @@ on:
 
 jobs:
   exec:
-    runs-on: ubuntu-20.04
-    timeout-minutes: 300
-    container: ruby:2.7.6
-
+    runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
-
-      - name: Setup Ruby environment
-        run: |
-          gem install bundler:2.2.19
-          bundle install
+      - uses: actions/checkout@v3
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "2.7.6"
+      - name: Install dependencies
+        run: bundle install
 
       - name: Execute report.rb
         env:
