@@ -1,0 +1,39 @@
+AllCops:
+  NewCops: enable
+
+Style/StringLiterals:
+  Enabled: true
+  EnforcedStyle: single_quotes
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Layout/LineLength:
+  Max: 100
+
+Metrics/MethodLength:
+  Max: 15
+
+Style/Documentation:
+  Enabled: true
+
+Naming/VariableName:
+  EnforcedStyle: snake_case
+
+Lint/UselessAssignment:
+  Enabled: true
+
+Style/IndentationWidth:
+  Width: 2
+
+Style/TrailingCommaInArrayLiteral:
+  EnforcedStyleForMultiline: comma
+
+Style/TrailingWhitespace:
+  Enabled: true
+
+Metrics/BlockLength:
+  Max: 25
+
+Lint/AmbiguousOperator:
+  Enabled: true
